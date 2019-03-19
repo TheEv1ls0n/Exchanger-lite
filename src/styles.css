@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.moneyBg{
+  background-image: url(https://cepia.ru/images/u/pages/269/kartinki-deneg-2.jpg);
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-attachment: fixed;
+}
+label {
+  color: teal;
+}
+

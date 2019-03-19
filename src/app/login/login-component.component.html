@@ -1,0 +1,37 @@
+<div  class="column">
+    <h2 class="ui teal image header">
+      <div class="content">
+        Log-in to your {{projectTitle}} account
+      </div>
+    </h2>
+  <form [formGroup]="loginForm"
+        (ngSubmit)="loginForm.valid && onLoginSubmit()"
+        class="ui large form">
+  <div class="ui stacked segment">
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="user icon"></i>
+        <input  name="email"
+                formControlName="email"
+                [(ngModel)]="user.email"
+                placeholder="E-mail address"
+                type="text">
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="lock icon"></i>
+        <input name="password"
+               formControlName="password"
+               [(ngModel)]="user.password"
+               placeholder="Password"
+               type="password">
+      </div>
+    </div>
+    <button class="ui fluid large teal submit button"
+            type = "submit"
+            [disabled]="!loginForm.valid" >Login</button>
+  </div>
+  </form>
+</div>
+

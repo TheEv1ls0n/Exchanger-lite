@@ -1,0 +1,26 @@
+body {
+  background-color: #DADADA;
+}
+body > .grid {
+  height: 100%;
+}
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 30em;
+}
+.window{
+  background-color: rgba(0, 0, 0, 40%);
+  border-radius: 20px;
+  max-width: 100em;
+  max-height: 60em;
+  margin: 20em auto;
+}
+.margins{
+  margin: 2em;
+  margin-bottom: 3em;
+}
+.form > .segment{
+  border-radius: 20px;
+}

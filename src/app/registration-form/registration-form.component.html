@@ -1,0 +1,53 @@
+<h2 class="ui teal header">
+  <div class="content">
+    Create your Cash Exchanger Account
+  </div>
+</h2>
+<form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onRegisterSubmit()" class="ui large form" novalidate>
+  <div class="ui stacked segment">
+    <div class="field">
+      <label>Name</label>
+      <div class="two fields">
+        <div class="field">
+          <input name="firstName"
+                 formControlName="firstName"
+                 [(ngModel)]="user.firstName"
+                 placeholder="First Name"
+                 type="text">
+        </div>
+        <div class="field">
+          <input name="lastName"
+                 formControlName="lastName"
+                 [(ngModel)]="user.lastName"
+                 placeholder="Last Name"
+                 type="text">
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>E-mail</label>
+      <div class="large field">
+        <input name="email"
+               formControlName="email"
+               [(ngModel)]="user.email"
+               placeholder="Your E-mail"
+               type="text">
+      </div>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <div class="ui right icon input">
+        <input name="password"
+               formControlName="password"
+               [(ngModel)]="user.password"
+               placeholder="Enter password"
+               [type]="hide ? 'password':'text'">
+        <button class="ui icon button teal" (click)="hide = !hide">
+          <i class="eye icon" >
+          </i>
+        </button>
+      </div>
+    </div>
+    <button class="ui teal button" tabindex="0" [disabled] = "!registerForm.valid">Sign-Up</button>
+  </div>
+</form>
