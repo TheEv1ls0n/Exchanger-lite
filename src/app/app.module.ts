@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {FormsModule} from '@angular/forms';
+import {MainPartModule} from './main-part/main-part.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { LoginComponentComponent } from './login/login-component.component';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { LoginComponentComponent } from './login/login-component.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    MainPartModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

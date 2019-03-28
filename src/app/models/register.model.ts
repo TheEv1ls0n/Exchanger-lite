@@ -3,5 +3,4 @@ export class RegisterModel {
   lastName: string;
   email: string;
   password: string;
-
 }

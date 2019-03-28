@@ -30,7 +30,9 @@
     </div>
     <button class="ui fluid large teal submit button"
             type = "submit"
-            [disabled]="!loginForm.valid" >Login</button>
+            [disabled]="!loginForm.valid"
+            routerLink="/LoggedIn"
+            (click)="onLoggedInToggle()">Login</button>
   </div>
   </form>
 </div>

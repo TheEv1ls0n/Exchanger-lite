@@ -1,11 +1,11 @@
-<div class="window">
+<div [ngClass]="{'wide-window': isLoggedIn, 'window': !isLoggedIn}">
   <div class="ui middle aligned center aligned grid">
-    <app-login-component *ngIf="isRegistred"></app-login-component>
-    <router-outlet class="margins" *ngIf = !isRegistred></router-outlet>
+    <router-outlet class="margins" (onChanged)="handleEvent($event)"></router-outlet>
   </div>
-  <div class="ui message middle aligned center aligned grid ">
+  <div *ngIf="isLoggedIn"
+    class="ui message middle aligned center aligned grid ">
     <button class="ui teal button"
-            routerLink="/signUp"
-            (click)="isRegistred = !isRegistred ">Click here to {{ actionChanging()}}</button>
+            routerLink="{{ isRegistred ? '/LogIn' : '/SignUp'}}"
+            (click)="isRegistred = !isRegistred ">Click here to {{ isRegistred ? 'Log In' : 'Sign Up'}}</button>
   </div>
 </div>

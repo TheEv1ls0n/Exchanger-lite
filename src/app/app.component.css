@@ -10,12 +10,24 @@ body > .grid {
 .column {
   max-width: 30em;
 }
+.full-screen{
+  height: 100%;
+}
 .window{
   background-color: rgba(0, 0, 0, 40%);
   border-radius: 20px;
   max-width: 100em;
   max-height: 60em;
   margin: 20em auto;
+}
+.wide-window{
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 40%);
+  border-radius: 20px;
+  margin: 0 10%;
 }
 .margins{
   margin: 2em;

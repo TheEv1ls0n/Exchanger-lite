@@ -11,7 +11,6 @@ export class RegistrationFormComponent implements OnInit{
   user: RegisterModel = new RegisterModel();
   registerForm: FormGroup;
   hide = true;
-
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
