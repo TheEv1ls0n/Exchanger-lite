@@ -4,6 +4,7 @@
   background-repeat: repeat-y;
   background-size: cover;
   background-attachment: fixed;
+  background-color: hsla(0,0%,100%,0.9);
 }
 label {
   color: teal;

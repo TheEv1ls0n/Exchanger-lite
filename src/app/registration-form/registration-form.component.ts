@@ -1,39 +1,65 @@
 import {Component, OnInit} from '@angular/core';
-import { RegisterModel} from '../models/register.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {UsersService} from '../users.service';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.css']
 })
-export class RegistrationFormComponent implements OnInit{
-  user: RegisterModel = new RegisterModel();
+export class RegistrationFormComponent implements OnInit {
   registerForm: FormGroup;
   hide = true;
-  constructor(private formBuilder: FormBuilder) { }
+  data: object;
+  constructor(private formBuilder: FormBuilder,
+              private service: UsersService,
+              private firestore: AngularFirestore
+              ) { }
 
   ngOnInit() {
+    this.resetForm();
+    this.initForm();
+  }
+  initForm() {
     this.registerForm = this.formBuilder.group({
-      'firstName': [this.user.firstName, [
-        Validators.required
-        ]],
-      'lastName': [this.user.lastName, [
+      firstName: [this.service.user.firstName, [
         Validators.required
       ]],
-      'email': [this.user.email, [
+      lastName: [this.service.user.lastName, [
+        Validators.required
+      ]],
+      email: [this.service.user.email, [
         Validators.required,
         Validators.email
       ]],
-      'password': [this.user.password, [
+      password: [this.service.user.password, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(18)
       ]]
     });
   }
-  onRegisterSubmit() {
-    alert(this.user.lastName + ' ' + this.user.firstName + ' ' + this.user.email + ' ' + this.user.password);
+
+
+  resetForm(registerForm?: FormGroup) {
+    if (registerForm != null) {
+      registerForm.reset();
+      }
+    this.service.user = {
+      id: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+    };
+
+  }
+  onRegisterSubmit(registerForm: FormGroup) {
+    this.data = registerForm.value;
+    this.firestore.collection('users').add(this.data);
+    this.resetForm(registerForm);
+    console.warn('Registration Completed');
   }
 }
 

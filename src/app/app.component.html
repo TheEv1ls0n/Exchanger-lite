@@ -1,11 +1,17 @@
-<div [ngClass]="{'wide-window': isLoggedIn, 'window': !isLoggedIn}">
-  <div class="ui middle aligned center aligned grid">
-    <router-outlet class="margins" (onChanged)="handleEvent($event)"></router-outlet>
+<div class="ui clearing segment">
+  <div class="">
+    <button *ngIf="!logInService.isLoggedIn"
+            class="ui teal right floated button"
+            routerLink="{{ isRegistred ? '/SignUp' : '/LogIn'}}"
+            (click)="isRegistred = !isRegistred ">Click here to {{ isRegistred ? 'Sign Up' : 'Log In' }}</button>
+    <button *ngIf="logInService.isLoggedIn"
+          class="ui teal button right floated"
+            routerLink="/LogIn"
+          (click)="logInService.onToogleIsLoggedIn(false)">Click here to Sign Out</button>
   </div>
-  <div *ngIf="isLoggedIn"
-    class="ui message middle aligned center aligned grid ">
-    <button class="ui teal button"
-            routerLink="{{ isRegistred ? '/LogIn' : '/SignUp'}}"
-            (click)="isRegistred = !isRegistred ">Click here to {{ isRegistred ? 'Log In' : 'Sign Up'}}</button>
+</div>
+<div [ngClass]="{'wide-window': logInService.isLoggedIn, 'window': !logInService.isLoggedIn}">
+  <div class="ui middle aligned center aligned grid">
+    <router-outlet></router-outlet>
   </div>
 </div>

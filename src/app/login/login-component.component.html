@@ -7,33 +7,33 @@
   <form [formGroup]="loginForm"
         (ngSubmit)="loginForm.valid && onLoginSubmit()"
         class="ui large form">
-  <div class="ui stacked segment">
-    <div class="field">
-      <div class="ui left icon input">
-        <i class="user icon"></i>
-        <input  name="email"
-                formControlName="email"
-                [(ngModel)]="user.email"
-                placeholder="E-mail address"
-                type="text">
+    <div class="ui stacked segment">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <input  name="email"
+                  formControlName="email"
+                  [(ngModel)]="user.email"
+                  placeholder="E-mail address"
+                  type="text">
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <div class="ui left icon input">
-        <i class="lock icon"></i>
-        <input name="password"
-               formControlName="password"
-               [(ngModel)]="user.password"
-               placeholder="Password"
-               type="password">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <input name="password"
+                 formControlName="password"
+                 [(ngModel)]="user.password"
+                 placeholder="Password"
+                 type="password">
+        </div>
       </div>
+      <button class="ui fluid large teal submit button"
+              type = "submit"
+              [disabled]="!loginForm.valid"
+              routerLink="/LoggedIn"
+              (click)="(logInService.onToogleIsLoggedIn(true))">Login</button>
     </div>
-    <button class="ui fluid large teal submit button"
-            type = "submit"
-            [disabled]="!loginForm.valid"
-            routerLink="/LoggedIn"
-            (click)="onLoggedInToggle()">Login</button>
-  </div>
   </form>
 </div>
 

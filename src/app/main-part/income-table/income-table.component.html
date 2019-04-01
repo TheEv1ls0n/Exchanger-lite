@@ -9,4 +9,33 @@
       <app-income-item></app-income-item>
     </tbody>
   </table>
+  <!--<input type="text"-->
+          <!--class="form-control">-->
+          <!--&lt;!&ndash;[(ngModel)]="tableItem.sourceIncome">&ndash;&gt;-->
+  <!--<div class="ui right labeled input">-->
+    <!--<div class="dropdown">-->
+      <!--<label for="amount" class="ui label"></label>-->
+      <!--<label for="amount" class="ui label">MDL</label>-->
+    <!--</div>-->
+      <!--<input placeholder="Amount" id="amount" type="text">-->
+      <!--<div class="ui basic label">.00</div>-->
+  <!--</div>-->
+  <div class="ui right labeled input">
+    <input placeholder="Type your Income" type="text">
+    <div class="ui dropdown label"
+         (click)="onShowDropdown = !onShowDropdown">
+      <div class="text">MDL</div>
+      <i class="dropdown icon"></i>
+      <div  [ngClass]="{'transition visible': onShowDropdown}" class="menu"
+            [ngStyle]="{'display': 'block !important'}">
+        <div id="Euro" class="item">€</div>
+        <div id="MDL" class="item">MDL</div>
+      </div>
+    </div>
+  </div>
 </div>
+<!--<div class="menu transition visible" tabindex="-1" style="display: block !important;">-->
+  <!--<div class="item">.com</div>-->
+  <!--<div class="item active selected">.net</div>-->
+  <!--<div class="item">.org</div>-->
+<!--</div>-->

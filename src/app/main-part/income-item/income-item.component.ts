@@ -12,7 +12,6 @@ export class IncomeItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.incomeItem);
   }
 
 }

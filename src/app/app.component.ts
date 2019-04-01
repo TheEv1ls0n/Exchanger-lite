@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {IsLoginService} from './is-login.service';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,8 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private logInService: IsLoginService) { }
+
   isRegistred = true;
-  isLoggedIn: boolean;
-    handleEvent(value) {
-   console.log(value);
-}
   }
 

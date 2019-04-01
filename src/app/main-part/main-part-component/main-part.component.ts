@@ -1,5 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { IncomeItemComponent} from '../income-item/income-item.component';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-main-part',
@@ -7,22 +6,7 @@ import { IncomeItemComponent} from '../income-item/income-item.component';
   styleUrls: ['./main-part.component.css']
 })
 export class MainPartComponent implements OnInit {
-  isLoggedIn: boolean;
-  @Output() onChanged: EventEmitter<boolean> = new EventEmitter();
-  constructor() { }
 
   ngOnInit() {
-  }
-
-  onSignOutClick() {
-    return this.isLoggedIn = false;
-  }
-  sendEventValue() {
-    this.onChanged.emit(this.isLoggedIn);
-  }
-  onLoggedInToggle() {
-    this.onSignOutClick();
-    this.sendEventValue();
-    console.log(this.isLoggedIn);
   }
 }
